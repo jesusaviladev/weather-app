@@ -1,22 +1,22 @@
 import { useState, useEffect } from 'react';
 import { getCurrentWeatherByLocation } from '../services/weather.services.js';
 
-const useCurrentForecast = (location) => {
-	const [currentForecast, setCurrentForecast] = useState({
+const useCurrentWeather = (location) => {
+	const [currentWeather, setCurrentWeather] = useState({
 		loading: true,
 		data: null,
 		error: false,
 	});
 
 	const setForecastData = (data) =>
-		setCurrentForecast({
+		setCurrentWeather({
 			loading: false,
 			data,
 			error: false,
 		});
 
 	const setError = () =>
-		setCurrentForecast({
+		setCurrentWeather({
 			loading: false,
 			data: null,
 			error: true,
@@ -38,22 +38,22 @@ const useCurrentForecast = (location) => {
 
 	return {
 		todayStats: {
-			temperature: currentForecast.data?.main.temp,
+			temperature: currentWeather.data?.main.temp,
 			condition: {
-				id: currentForecast.data?.weather[0].id,
-				description: currentForecast.data?.weather[0].description,
+				id: currentWeather.data?.weather[0].id,
+				description: currentWeather.data?.weather[0].description,
 			},
-			location: currentForecast.data?.coord,
-			timezone: currentForecast.data?.timezone,
+			location: currentWeather.data?.coord,
+			timezone: currentWeather.data?.timezone,
 			details: {
-				windSpeed: currentForecast.data?.wind.speed,
-				humidity: currentForecast.data?.main.humidity,
-				pressure: currentForecast.data?.main.pressure,
-				visibility: currentForecast.data?.visibility,
+				windSpeed: currentWeather.data?.wind.speed,
+				humidity: currentWeather.data?.main.humidity,
+				pressure: currentWeather.data?.main.pressure,
+				visibility: currentWeather.data?.visibility,
 			},
 		},
-		loading: currentForecast.loading,
-		error: currentForecast.error,
+		loading: currentWeather.loading,
+		error: currentWeather.error,
 	};
 };
 
@@ -70,4 +70,4 @@ const loadWeatherData = async (
 	else setError();
 };
 
-export default useCurrentForecast;
+export default useCurrentWeather;

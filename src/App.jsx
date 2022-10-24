@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { DEFAULT_LOCATION } from './constants/location.js';
-import useCurrentForecast from './lib/hooks/useCurrentForecast.js';
+import useCurrentWeather from './lib/hooks/useCurrentWeather.js';
+import useForecast from './lib/hooks/useForecast.js';
 import TodayStats from './components/TodayStats.jsx';
 import WeatherDetails from './components/WeatherDetails.jsx';
 import styles from './App.module.css';
@@ -12,7 +13,9 @@ const App = () => {
         getLocation(setCurrentLocation);
     }, []);
 
-    const { todayStats, loading, error } = useCurrentForecast(currentLocation);
+    const { todayStats, loading, error } = useCurrentWeather(currentLocation);
+
+    const forecast = useForecast(currentLocation);
 
     return (
         <div className={styles.wrapper}>
@@ -23,6 +26,7 @@ const App = () => {
             />
             <WeatherDetails
                 statsDetails={todayStats.details}
+                forecast={forecast}
                 loading={loading}
                 error={error}
             />

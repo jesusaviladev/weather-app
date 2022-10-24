@@ -37,6 +37,14 @@ export const getCurrentWeatherByLocation = async (
 	}
 };
 
+/**
+ * Retorna la información de la API para el pronóstico del clima en los 5 días
+ * siguientes según las coordenadas proporcionadas
+ * @param {number} latitude Coordenada de latitud
+ * @param {number} longitude Coordenada de longitud
+ * @param {object} abortSignal Señal para abortar la petición
+ */
+
 export const getWeatherForecastByLocation = async (
 	latitude,
 	longitude,
@@ -53,8 +61,7 @@ export const getWeatherForecastByLocation = async (
 		);
 
 		const forecastData = await res.json();
-
-		return forecastData;
+		return forecastData.list;
 	} catch (error) {
 		console.log(error);
 

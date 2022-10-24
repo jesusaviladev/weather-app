@@ -4,7 +4,7 @@ import FutureForecast from './FutureForecast.jsx';
 import Spinner from './indicators/Spinner.jsx';
 import styles from './WeatherDetails.module.css';
 
-const WeatherDetails = ({ statsDetails, loading, error }) => {
+const WeatherDetails = ({ statsDetails, forecast, loading, error }) => {
 	const info = getWeatherDetails(statsDetails, loading, error);
 
 	return (
@@ -14,7 +14,7 @@ const WeatherDetails = ({ statsDetails, loading, error }) => {
 				<RoundButton>ºC</RoundButton>
 			</div>
 			<div className={styles.wrapper}>
-				<FutureForecast location={{ latitude: 10, longitude: -66 }} />
+				<FutureForecast forecast={forecast} />
 				{info}
 			</div>
 		</div>

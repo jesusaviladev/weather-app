@@ -1,53 +1,23 @@
-import { useState, useEffect } from 'react';
 import Spinner from './indicators/Spinner.jsx';
 import ForecastCard from './ForecastCard.jsx';
 import styles from './FutureForecast.module.css';
 
-const FutureForecast = ({ location }) => {
-	const [forecast, setForecast] = useState({
-		loading: true,
-		data: null,
-		error: true,
-	});
+const FutureForecast = ({ forecast }) => {
+	if (forecast.loading) return <Spinner />;
 
-	const setForecastData = (data) =>
-		setForecast({ loading: false, data, error: false });
-
-	const setError = () =>
-		setForecast({ loading: false, data: null, error: true });
+	if (forecast.error) return <p>Error al cargar el pronóstico</p>;
 
 	return (
 		<div className={styles.wrapper}>
-			<ForecastCard
-				date="Sun, Feb 28"
-				weatherType={801}
-				maxTemp="16"
-				minTemp="11"
-			/>
-			<ForecastCard
-				date="Sun, Feb 28"
-				weatherType={801}
-				maxTemp="16"
-				minTemp="11"
-			/>
-			<ForecastCard
-				date="Sun, Feb 28"
-				weatherType={801}
-				maxTemp="16"
-				minTemp="11"
-			/>
-			<ForecastCard
-				date="Sun, Feb 28"
-				weatherType={801}
-				maxTemp="16"
-				minTemp="11"
-			/>
-			<ForecastCard
-				date="Sun, Feb 28"
-				weatherType={801}
-				maxTemp="16"
-				minTemp="11"
-			/>
+			{forecast.data.map((dailyForecast) => (
+				<ForecastCard
+					key={dailyForecast.date}
+					date={dailyForecast.date}
+					weatherType={dailyForecast.condition.id}
+					minTemp={dailyForecast.temperature.min}
+					maxTemp={dailyForecast.temperature.max}
+				/>
+			))}
 		</div>
 	);
 };
