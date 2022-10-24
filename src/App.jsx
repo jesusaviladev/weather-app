@@ -19,7 +19,11 @@ const App = () => {
                 loading={loading}
                 error={error}
             />
-            <ForecastDetails />
+            <ForecastDetails
+                statsDetails={todayStats.details}
+                loading={loading}
+                error={error}
+            />
         </div>
     );
 };

@@ -1,44 +1,53 @@
 import styles from './TodayDetails.module.css';
 
-const TodayDetails = () => {
+const TodayDetails = ({ windSpeed, humidity, visibility, pressure }) => {
+	const speed = convertToKmph(Number(windSpeed));
+
+	const visibilityKm = convertToKm(Number(visibility));
+
 	return (
 		<section className={styles.container}>
 			<h2>{"Today's Hightlights"}</h2>
 			<div className={styles.wrapper}>
 				<div className={styles.card}>
-					<h3 className={styles.title}>Wind status</h3>
+					<h3 className={styles.title}>Velocidad del viento</h3>
 					<p className={styles.text}>
-						<span className={styles.value}>7</span>
-						mph
+						<span className={styles.value}>{speed}</span>
+						Km/h
 					</p>
 				</div>
 				<div className={styles.card}>
-					<h3 className={styles.title}>Humidity</h3>
+					<h3 className={styles.title}>Humedad</h3>
 					<p className={styles.text}>
-						<span className={styles.value}>84</span>%
+						<span className={styles.value}>{humidity}</span>%
 					</p>
 					<progress
 						className={styles.progress}
 						min="0"
 						max="100"
-						value="84"
+						value={humidity}
 					></progress>
 				</div>
 				<div className={styles.card}>
-					<h3 className={styles.title}>Visibility</h3>
+					<h3 className={styles.title}>Visibilidad</h3>
 					<p className={styles.text}>
-						<span className={styles.value}>6,4</span>miles
+						<span className={styles.value}>{visibilityKm}</span>Km
 					</p>
 				</div>
 				<div className={styles.card}>
-					<h3 className={styles.title}>Air pressure</h3>
+					<h3 className={styles.title}>Presión atmosférica</h3>
 					<p className={styles.text}>
-						<span className={styles.value}>998</span>mb
+						<span className={styles.value}>{pressure}</span>hPa
 					</p>
 				</div>
 			</div>
 		</section>
 	);
 };
+
+const convertToKmph = (metersPerSecond) =>
+	(metersPerSecond * (3600 / 1000)).toFixed(1);
+
+const convertToKm = (meters) => (meters / 1000).toFixed(1);
 
 export default TodayDetails;

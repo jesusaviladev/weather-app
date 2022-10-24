@@ -34,7 +34,7 @@ const useCurrentForecast = (location) => {
 		);
 
 		return () => controller.abort();
-	}, []);
+	}, [location.latitude, location.longitude]);
 
 	return {
 		todayStats: {
@@ -45,6 +45,12 @@ const useCurrentForecast = (location) => {
 			},
 			location: currentForecast.data?.coord,
 			timezone: currentForecast.data?.timezone,
+			details: {
+				windSpeed: currentForecast.data?.wind.speed,
+				humidity: currentForecast.data?.main.humidity,
+				pressure: currentForecast.data?.main.pressure,
+				visibility: currentForecast.data?.visibility,
+			},
 		},
 		loading: currentForecast.loading,
 		error: currentForecast.error,

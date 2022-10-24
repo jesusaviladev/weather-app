@@ -1,9 +1,12 @@
 import RoundButton from './buttons/RoundButton.jsx';
 import TodayDetails from './TodayDetails.jsx';
 import ForecastCard from './ForecastCard.jsx';
+import Spinner from './indicators/Spinner.jsx';
 import styles from './ForecastDetails.module.css';
 
-const ForecastDetails = () => {
+const ForecastDetails = ({ statsDetails, loading, error }) => {
+	const info = getForecastDetails(statsDetails, loading, error);
+
 	return (
 		<div className={styles.container}>
 			<div className={styles.buttons}>
@@ -43,10 +46,18 @@ const ForecastDetails = () => {
 						minTemp="11"
 					/>
 				</div>
-				<TodayDetails />
+				{info}
 			</div>
 		</div>
 	);
+};
+
+const getForecastDetails = (data, loading, error) => {
+	if (loading) return <Spinner />;
+
+	if (error) return <p>Error al cargar</p>;
+
+	return <TodayDetails {...data} />;
 };
 
 export default ForecastDetails;
