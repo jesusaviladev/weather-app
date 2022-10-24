@@ -1,3 +1,4 @@
+import LocationIcon from './icons/LocationIcon.jsx';
 import styles from './WeatherStatsDisplay.module.css';
 
 const WeatherStatsDisplay = ({
@@ -28,9 +29,10 @@ const WeatherStatsDisplay = ({
 			</div>
 			<p className={styles.description}>{condition.description}</p>
 			<span className={styles.date}>Hoy · {currentDate}</span>
-			<span
-				className={styles.location}
-			>{`Lat: ${location.lat} - Long: ${location.lon}`}</span>
+			<span className={styles.location}>
+				<LocationIcon className={styles.icon} />
+				{`Lat: ${location.lat} - Long: ${location.lon}`}
+			</span>
 		</div>
 	);
 };

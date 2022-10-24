@@ -14,11 +14,3 @@
 .wrapper {
 	padding: 0 5rem;
 }
-
-.futureForecast {
-	display: flex;
-	justify-content: space-between;
-	gap: 1rem;
-
-	margin: 4rem 0;
-}

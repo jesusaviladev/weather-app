@@ -1,4 +1,5 @@
 import Button from './buttons/Button.jsx';
+import GPSIcon from './icons/GPSIcon.jsx';
 import RoundButton from './buttons/RoundButton.jsx';
 import Spinner from './indicators/Spinner.jsx';
 import WeatherStatsDisplay from './WeatherStatsDisplay.jsx';
@@ -12,7 +13,9 @@ const TodayStats = ({ todayStats, loading, error }) => {
 		<div className={styles.wrapper}>
 			<div className={styles.buttons}>
 				<Button kind="secondary">Buscar ciudad</Button>
-				<RoundButton className={styles.button}>{'->'}</RoundButton>
+				<RoundButton className={styles.button}>
+					<GPSIcon className={styles.icon} />
+				</RoundButton>
 			</div>
 			{stats}
 		</div>

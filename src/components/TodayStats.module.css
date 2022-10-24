@@ -35,3 +35,7 @@
 	background: no-repeat center url('/assets/Cloud-background.png');
 	filter: opacity(10%);
 }
+
+.icon {
+	fill: currentColor;
+}

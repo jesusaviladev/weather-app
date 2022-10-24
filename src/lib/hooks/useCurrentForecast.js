@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getCurrentForecastByLocation } from '../services/weather.services.js';
+import { getCurrentWeatherByLocation } from '../services/weather.services.js';
 
 const useCurrentForecast = (location) => {
 	const [currentForecast, setCurrentForecast] = useState({
@@ -64,11 +64,7 @@ const loadWeatherData = async (
 	setForecastData,
 	setError
 ) => {
-	const data = await getCurrentForecastByLocation(
-		latitude,
-		longitude,
-		signal
-	);
+	const data = await getCurrentWeatherByLocation(latitude, longitude, signal);
 
 	if (data) setForecastData(data);
 	else setError();

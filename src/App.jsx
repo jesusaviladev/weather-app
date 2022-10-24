@@ -1,14 +1,16 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { DEFAULT_LOCATION } from './constants/location.js';
 import useCurrentForecast from './lib/hooks/useCurrentForecast.js';
 import TodayStats from './components/TodayStats.jsx';
-import ForecastDetails from './components/ForecastDetails.jsx';
+import WeatherDetails from './components/WeatherDetails.jsx';
 import styles from './App.module.css';
 
 const App = () => {
-    const [currentLocation, setCurrentLocation] = useState({
-        latitude: 10.48801,
-        longitude: -66.87919,
-    });
+    const [currentLocation, setCurrentLocation] = useState(DEFAULT_LOCATION);
+
+    useEffect(() => {
+        getLocation(setCurrentLocation);
+    }, []);
 
     const { todayStats, loading, error } = useCurrentForecast(currentLocation);
 
@@ -19,13 +21,39 @@ const App = () => {
                 loading={loading}
                 error={error}
             />
-            <ForecastDetails
+            <WeatherDetails
                 statsDetails={todayStats.details}
                 loading={loading}
                 error={error}
             />
         </div>
     );
+};
+
+const getLocation = async (setCurrentLocation) => {
+    try {
+        const location = await getBrowserLocation();
+
+        if (location) setCurrentLocation(location.coords);
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+const getBrowserLocation = () => {
+    if (!navigator.geolocation) {
+        console.error(`Your browser doesn't support Geolocation`);
+    }
+
+    const geolocation = navigator.geolocation;
+
+    return new Promise((resolve, reject) => {
+        const success = (location) => resolve(location);
+
+        const error = (err) => reject(new Error(err.message));
+
+        geolocation.getCurrentPosition(success, error);
+    });
 };
 
 export default App;

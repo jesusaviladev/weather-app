@@ -1,4 +1,8 @@
-import { API_KEY, CURRENT_WEATHER_API_URL } from './config.js';
+import {
+	API_KEY,
+	CURRENT_WEATHER_API_URL,
+	WEATHER_FORECAST_API_URL,
+} from './config.js';
 
 /**
  * Retorna la información de la API para el pronóstico del clima según las
@@ -8,7 +12,7 @@ import { API_KEY, CURRENT_WEATHER_API_URL } from './config.js';
  * @param {object} abortSignal Señal para abortar la petición
  */
 
-export const getCurrentForecastByLocation = async (
+export const getCurrentWeatherByLocation = async (
 	latitude,
 	longitude,
 	abortSignal
@@ -16,6 +20,31 @@ export const getCurrentForecastByLocation = async (
 	try {
 		const res = await fetch(
 			`${CURRENT_WEATHER_API_URL}
+			?lat=${latitude}&lon=${longitude}
+			&appid=${API_KEY}&lang=es&units=metric`,
+			{
+				signal: abortSignal,
+			}
+		);
+
+		const forecastData = await res.json();
+
+		return forecastData;
+	} catch (error) {
+		console.log(error);
+
+		return null;
+	}
+};
+
+export const getWeatherForecastByLocation = async (
+	latitude,
+	longitude,
+	abortSignal
+) => {
+	try {
+		const res = await fetch(
+			`${WEATHER_FORECAST_API_URL}
 			?lat=${latitude}&lon=${longitude}
 			&appid=${API_KEY}&lang=es&units=metric`,
 			{
