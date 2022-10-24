@@ -1,0 +1,22 @@
+:root {
+	/* Colores */
+
+	--color-blue: #1e213a;
+	--color-dark-blue: #100e1d;
+	--color-gray: #6e707a;
+	--color-lightgray: #a09fb1;
+	--color-purple: #3c47e9;
+	--color-lightpurple: #585676;
+	--color-white: #e7e7eb;
+	--color-yellow: #ffec65;
+
+	/* Sombras */
+
+	--shadow-sm: 0px 0px 8px rgba(69, 69, 69, 0.3);
+	--shadow-md: 0px 0px 12px rgba(69, 69, 69, 0.5);
+
+	/* Bordes */
+
+	--radius-sm: 0.5rem;
+	--radius-md: 1rem;
+}

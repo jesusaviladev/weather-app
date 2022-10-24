@@ -1,0 +1,30 @@
+.wrapper {
+	min-height: 100vh;
+
+	background-color: var(--color-blue);
+	color: var(--color-lightgray);
+}
+
+.buttons {
+	padding: 2.5rem;
+}
+
+.error {
+	text-align: center;
+}
+
+.weatherStatus {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+
+.weatherStatus::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+
+	background: no-repeat center/90% url('/assets/Cloud-background.png');
+	filter: opacity(10%);
+}

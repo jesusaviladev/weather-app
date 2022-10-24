@@ -1,0 +1,7 @@
+@media screen and (min-width: 1024px) {
+	.wrapper {
+		display: grid;
+		grid-template-columns: 459px 1fr;
+		grid-template-rows: 1fr;
+	}
+}

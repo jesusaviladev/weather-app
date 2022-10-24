@@ -1,0 +1,29 @@
+.card {
+	background-color: var(--color-blue);
+
+	padding: 1.2rem;
+
+	text-align: center;
+}
+
+.card img {
+	width: 60px;
+	height: 60px;
+}
+
+.date {
+	margin-top: 0;
+	margin-bottom: 0;
+
+	font-weight: 500;
+	font-size: 1rem;
+}
+
+.temperatures {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+
+	margin-top: 2rem;
+}

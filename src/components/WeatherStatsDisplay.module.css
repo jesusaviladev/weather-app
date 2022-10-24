@@ -1,0 +1,41 @@
+.stats {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	text-align: center;
+
+	padding: 2.5rem;
+}
+
+.temperature {
+	font-size: 3rem;
+	margin: 5rem 0;
+}
+
+.temperatureValue {
+	font-size: 9rem;
+	font-weight: 500;
+	color: var(--color-white);
+}
+
+.description {
+	font-size: 2.5rem;
+	font-weight: 600;
+	margin-top: 0;
+	margin-bottom: 5rem;
+}
+
+.description:first-letter {
+	text-transform: uppercase;
+}
+
+.date {
+	font-size: 1.2rem;
+	margin-bottom: 2rem;
+}
+
+.location {
+	font-weight: 600;
+}

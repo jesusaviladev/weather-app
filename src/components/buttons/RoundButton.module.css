@@ -1,0 +1,32 @@
+.button {
+	border: none;
+	border-radius: 50%;
+	outline: none;
+
+	width: 2.5rem;
+	height: 2.5rem;
+
+	cursor: pointer;
+}
+
+.button:disabled {
+	background-color: var(--color-white);
+	color: var(--color-lightgray);
+	pointer-events: none;
+}
+
+.primary,
+.secondary {
+	font-weight: 600;
+	font-size: 1.2rem;
+}
+
+.primary {
+	background-color: var(--color-white);
+	color: var(--color-dark-blue);
+}
+
+.secondary {
+	background-color: var(--color-lightpurple);
+	color: var(--color-white);
+}

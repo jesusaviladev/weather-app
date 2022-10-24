@@ -1,0 +1,24 @@
+.container {
+	background-color: var(--color-dark-blue);
+	color: var(--color-white);
+
+	padding: 2.5rem;
+}
+
+.buttons {
+	display: flex;
+	flex-direction: row-reverse;
+	gap: 0.75rem;
+}
+
+.wrapper {
+	padding: 0 5rem;
+}
+
+.futureForecast {
+	display: flex;
+	justify-content: space-between;
+	gap: 1rem;
+
+	margin: 4rem 0;
+}
