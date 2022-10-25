@@ -17,6 +17,16 @@ const WeatherDetails = ({ statsDetails, forecast, loading, error }) => {
 				<FutureForecast forecast={forecast} />
 				{info}
 			</div>
+			<p className={styles.credits}>
+				Created by: @jesusaviladev for
+				<a
+					href="https://devchallenges.io"
+					target="_blank"
+					rel="noreferrer"
+				>
+					devchalenges.io
+				</a>
+			</p>
 		</div>
 	);
 };

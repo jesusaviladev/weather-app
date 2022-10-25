@@ -1,8 +1,13 @@
 .wrapper {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 200px 150px;
 	gap: 2.5rem;
+}
+
+@media screen and (min-width: 1024px) {
+	.wrapper {
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 200px 150px;
+	}
 }
 
 .card {
