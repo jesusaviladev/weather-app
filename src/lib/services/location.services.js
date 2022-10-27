@@ -8,7 +8,7 @@ export const getLocationNameByCoords = async (
 	try {
 		const res = await fetch(
 			`${GEOLOCATION_API_URL}
-			?lat=${latitude}&lon=${longitude}&limit=5&appid=${API_KEY}`,
+			?lat=${latitude}&lon=${longitude}&limit=5&appid=${API_KEY}&limit=1`,
 			{
 				signal: abortSignal,
 			}

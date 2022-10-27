@@ -46,7 +46,10 @@ const useCurrentWeather = (location) => {
 			location: currentWeather.data?.coord,
 			timezone: currentWeather.data?.timezone,
 			details: {
-				windSpeed: currentWeather.data?.wind.speed,
+				wind: {
+					speed: currentWeather.data?.wind.speed,
+					direction: currentWeather.data?.wind.deg,
+				},
 				humidity: currentWeather.data?.main.humidity,
 				pressure: currentWeather.data?.main.pressure,
 				visibility: currentWeather.data?.visibility,

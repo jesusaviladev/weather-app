@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { DEFAULT_LOCATION } from './constants/location.js';
 import useCurrentWeather from './lib/hooks/useCurrentWeather.js';
 import useForecast from './lib/hooks/useForecast.js';
+import { getBrowserLocation } from './lib/utils/browser-location.js';
 import TodayStats from './components/TodayStats.jsx';
 import WeatherDetails from './components/WeatherDetails.jsx';
 import styles from './App.module.css';
@@ -21,6 +22,7 @@ const App = () => {
         <div className={styles.wrapper}>
             <TodayStats
                 todayStats={todayStats}
+                setCurrentLocation={setCurrentLocation}
                 loading={loading}
                 error={error}
             />
@@ -42,22 +44,6 @@ const getLocation = async (setCurrentLocation) => {
     } catch (error) {
         console.log(error);
     }
-};
-
-const getBrowserLocation = () => {
-    if (!navigator.geolocation) {
-        console.error(`Your browser doesn't support Geolocation`);
-    }
-
-    const geolocation = navigator.geolocation;
-
-    return new Promise((resolve, reject) => {
-        const success = (location) => resolve(location);
-
-        const error = (err) => reject(new Error(err.message));
-
-        geolocation.getCurrentPosition(success, error);
-    });
 };
 
 export default App;

@@ -1,8 +1,9 @@
 import ProgressBar from './indicators/ProgressBar.jsx';
+import NavigationIcon from './icons/NavigationIcon.jsx';
 import styles from './TodayDetails.module.css';
 
-const TodayDetails = ({ windSpeed, humidity, visibility, pressure }) => {
-	const speed = convertToKmph(Number(windSpeed));
+const TodayDetails = ({ wind, humidity, visibility, pressure }) => {
+	const speed = convertToKmph(Number(wind.speed));
 
 	const visibilityKm = convertToKm(Number(visibility));
 
@@ -16,6 +17,14 @@ const TodayDetails = ({ windSpeed, humidity, visibility, pressure }) => {
 						<span className={styles.value}>{speed}</span>
 						Km/h
 					</p>
+					<div>
+						<NavigationIcon
+							style={{
+								transform: `rotate(${wind.direction}deg)`,
+							}}
+							className={styles.icon}
+						/>
+					</div>
 				</div>
 				<div className={styles.card}>
 					<h3 className={styles.title}>Humedad</h3>

@@ -15,11 +15,9 @@ const getWeatherIcon = (id) => {
 
 	if (id >= 500 && id <= 504) return 'HeavyRain.png';
 
-	if (id === 511) return 'Sleet.png';
-
 	if (id >= 520 && id <= 531) return 'Shower.png';
 
-	if (id === 611) return 'Sleet.png';
+	if (id === 511 || id === 611) return 'Sleet.png';
 
 	if (id >= 600 && id <= 622) return 'Snow.png';
 

@@ -1,3 +1,4 @@
+import useLocationInfo from '../lib/hooks/useLocationInfo.js';
 import LocationIcon from './icons/LocationIcon.jsx';
 import styles from './WeatherStatsDisplay.module.css';
 
@@ -7,6 +8,8 @@ const WeatherStatsDisplay = ({
 	location,
 	timezoneShift,
 }) => {
+	const { locationName, country } = useLocationInfo(location);
+
 	const dateOptions = {
 		weekday: 'short',
 		day: '2-digit',
@@ -31,6 +34,11 @@ const WeatherStatsDisplay = ({
 			<span className={styles.location}>
 				<LocationIcon className={styles.icon} />
 				{`Lat: ${location.lat} - Long: ${location.lon}`}
+			</span>
+			<span>
+				{locationName
+					? `${locationName}, ${country}`
+					: 'No hay información de su ubicación'}
 			</span>
 		</div>
 	);

@@ -56,5 +56,10 @@
 .progress {
 	margin-top: 1rem;
 	width: 75%;
-	height: 7px;
+	height: 8px;
+}
+
+.icon {
+	fill: currentColor;
+	margin-top: 1rem;
 }

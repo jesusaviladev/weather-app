@@ -4,9 +4,10 @@ import RoundButton from './buttons/RoundButton.jsx';
 import Spinner from './indicators/Spinner.jsx';
 import WeatherStatsDisplay from './WeatherStatsDisplay.jsx';
 import WeatherStatusIcon from './WeatherStatusIcon.jsx';
+import { getBrowserLocation } from '../lib/utils/browser-location.js';
 import styles from './TodayStats.module.css';
 
-const TodayStats = ({ todayStats, loading, error }) => {
+const TodayStats = ({ todayStats, setCurrentLocation, loading, error }) => {
 	const stats = getWeatherInfo(todayStats, loading, error);
 
 	return (
@@ -14,7 +15,10 @@ const TodayStats = ({ todayStats, loading, error }) => {
 			<div className={styles.buttons}>
 				<Button kind="secondary">Buscar ciudad</Button>
 				<RoundButton className={styles.button}>
-					<GPSIcon className={styles.icon} />
+					<GPSIcon
+						className={styles.icon}
+						onClick={() => getLocation(setCurrentLocation)}
+					/>
 				</RoundButton>
 			</div>
 			{stats}
@@ -35,6 +39,16 @@ const getWeatherInfo = (stats, loading, error) => {
 			<WeatherStatsDisplay {...stats} />
 		</>
 	);
+};
+
+const getLocation = async (setCurrentLocation) => {
+	try {
+		const location = await getBrowserLocation();
+
+		if (location) setCurrentLocation(location.coords);
+	} catch (error) {
+		console.log(error);
+	}
 };
 
 export default TodayStats;
