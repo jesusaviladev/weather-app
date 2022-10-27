@@ -7,13 +7,21 @@ import WeatherStatusIcon from './WeatherStatusIcon.jsx';
 import { getBrowserLocation } from '../lib/utils/browser-location.js';
 import styles from './TodayStats.module.css';
 
-const TodayStats = ({ todayStats, setCurrentLocation, loading, error }) => {
+const TodayStats = ({
+	todayStats,
+	setCurrentLocation,
+	openSearchPanel,
+	loading,
+	error,
+}) => {
 	const stats = getWeatherInfo(todayStats, loading, error);
 
 	return (
 		<div className={styles.wrapper}>
 			<div className={styles.buttons}>
-				<Button kind="secondary">Buscar ciudad</Button>
+				<Button kind="secondary" onClick={openSearchPanel}>
+					Buscar ciudad
+				</Button>
 				<RoundButton className={styles.button}>
 					<GPSIcon
 						className={styles.icon}

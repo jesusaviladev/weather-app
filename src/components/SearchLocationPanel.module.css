@@ -1,0 +1,43 @@
+.wrapper {
+	min-height: 100vh;
+
+	background-color: var(--color-blue);
+	color: var(--color-lightgray);
+}
+
+.form {
+	padding: 2rem;
+}
+
+.buttons {
+	padding: 2rem;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.search {
+	margin-bottom: 3rem;
+	display: flex;
+	gap: 1rem;
+}
+
+.searchInput {
+	width: 70%;
+}
+
+.button {
+	width: 30%;
+}
+
+.close {
+	background-color: transparent;
+	border: none;
+	outline: none;
+	color: var(--color-white);
+	cursor: pointer;
+}
+
+.icon {
+	fill: currentColor;
+}

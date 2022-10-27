@@ -18,7 +18,9 @@ const useLocationInfo = (location) => {
 		const controller = new AbortController();
 
 		getLocationNameByCoords(location.lat, location.lon, controller.signal)
-			.then((data) => setLocationData(data[0]))
+			.then((data) => {
+				if (data) setLocationData(data[0]);
+			})
 			.catch((error) => {
 				console.log(error);
 				setError();

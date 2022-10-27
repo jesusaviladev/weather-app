@@ -8,3 +8,6 @@ export const WEATHER_FORECAST_API_URL =
 
 export const GEOLOCATION_API_URL =
 	'https://api.openweathermap.org/geo/1.0/reverse';
+
+export const GEOLOCATION_DIRECT_API_URL =
+	'https://api.openweathermap.org/geo/1.0/direct';

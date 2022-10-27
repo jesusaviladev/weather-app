@@ -20,7 +20,7 @@ const WeatherDetails = ({ statsDetails, forecast, loading, error }) => {
 			<p className={styles.credits}>
 				Created by: @jesusaviladev for{' '}
 				<a
-					href="https://devchallenges.io"
+					href="https://devchallenges.io/challenges/mM1UIenRhK808W8qmLWv"
 					target="_blank"
 					rel="noreferrer"
 				>
