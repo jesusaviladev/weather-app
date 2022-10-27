@@ -18,7 +18,7 @@ const WeatherDetails = ({ statsDetails, forecast, loading, error }) => {
 				{info}
 			</div>
 			<p className={styles.credits}>
-				Created by: @jesusaviladev for
+				Created by: @jesusaviladev for{' '}
 				<a
 					href="https://devchallenges.io"
 					target="_blank"

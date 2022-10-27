@@ -2,7 +2,16 @@ import WeatherStatusIcon from './WeatherStatusIcon.jsx';
 import styles from './ForecastCard.module.css';
 
 const ForecastCard = ({ date, weatherType, maxTemp, minTemp }) => {
-	const formattedDate = new Date(date).toLocaleDateString('es-VE');
+	const dateOptions = {
+		weekday: 'short',
+		day: '2-digit',
+		month: 'short',
+	};
+
+	const formattedDate = new Date(date).toLocaleDateString(
+		'es-VE',
+		dateOptions
+	);
 
 	return (
 		<div className={styles.card}>

@@ -39,7 +39,7 @@ const useForecast = (location) => {
 
 const filterForecastData = (data) =>
 	data
-		.filter((element) => new Date(element.dt_txt).getHours() === 12)
+		.filter((element) => new Date(element.dt_txt).getHours() === 0)
 		.map((forecast) => {
 			return {
 				condition: {

@@ -13,7 +13,6 @@
 .card {
 	background-color: var(--color-blue);
 	padding: 1.75rem;
-	text-align: center;
 
 	display: flex;
 	flex-direction: column;
@@ -34,17 +33,28 @@
 
 	margin-top: 0;
 	margin-bottom: 0;
+}
 
-	display: flex;
-	align-items: center;
-	gap: 0.5rem;
+@media screen and (min-width: 1024px) {
+	.text {
+		font-size: 3vmax;
+	}
 }
 
 .value {
-	font-size: 4rem;
+	font-size: 3rem;
 	font-weight: 700;
+	margin-right: 5px;
+}
+
+@media screen and (min-width: 1024px) {
+	.value {
+		font-size: 5vmax;
+	}
 }
 
 .progress {
 	margin-top: 1rem;
+	width: 75%;
+	height: 7px;
 }

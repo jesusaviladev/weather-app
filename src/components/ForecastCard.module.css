@@ -7,23 +7,25 @@
 }
 
 .card img {
-	width: 60px;
-	height: 60px;
+	width: 70px;
+	height: 70px;
+	object-fit: contain;
 }
 
 .date {
 	margin-top: 0;
 	margin-bottom: 0;
 
-	font-weight: 500;
+	font-weight: 600;
 	font-size: 1rem;
+	text-transform: capitalize;
 }
 
 .temperatures {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 1rem;
-
 	margin-top: 2rem;
+}
+
+.temperatures :nth-child(2) {
+	margin-left: 5px;
+	color: var(--color-lightgray);
 }

@@ -1,3 +1,4 @@
+import ProgressBar from './indicators/ProgressBar.jsx';
 import styles from './TodayDetails.module.css';
 
 const TodayDetails = ({ windSpeed, humidity, visibility, pressure }) => {
@@ -21,12 +22,7 @@ const TodayDetails = ({ windSpeed, humidity, visibility, pressure }) => {
 					<p className={styles.text}>
 						<span className={styles.value}>{humidity}</span>%
 					</p>
-					<progress
-						className={styles.progress}
-						min="0"
-						max="100"
-						value={humidity}
-					></progress>
+					<ProgressBar className={styles.progress} value={humidity} />
 				</div>
 				<div className={styles.card}>
 					<h3 className={styles.title}>Visibilidad</h3>

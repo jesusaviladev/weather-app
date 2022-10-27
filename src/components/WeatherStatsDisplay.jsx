@@ -8,10 +8,9 @@ const WeatherStatsDisplay = ({
 	timezoneShift,
 }) => {
 	const dateOptions = {
-		weekday: 'long',
-		year: 'numeric',
-		month: 'long',
-		day: 'numeric',
+		weekday: 'short',
+		day: '2-digit',
+		month: 'short',
 	};
 
 	const currentDate = new Date(Date.now()).toLocaleDateString(

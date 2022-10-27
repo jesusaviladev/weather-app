@@ -1,0 +1,13 @@
+.progress {
+	width: 100%;
+	background-color: var(--color-lightgray);
+	height: 5px;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.progress > span {
+	display: block;
+	height: 100%;
+	background-color: var(--color-yellow);
+}
