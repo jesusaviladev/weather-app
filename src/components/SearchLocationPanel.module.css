@@ -26,6 +26,12 @@
 	width: 70%;
 }
 
+.searchResult {
+	display: block;
+	padding: 0.75rem;
+	cursor: pointer;
+}
+
 .button {
 	width: 30%;
 }
