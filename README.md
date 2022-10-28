@@ -17,6 +17,15 @@ Reto de https://devchallenges.io
 11. User story(optional): I can request my current location weather
 12. User story(optional): I can convert temperature in Celcius to Fahrenheit and vice versa
 
+Para arrancar el proyecto usa el siguiente comando en Vite:
+
+```
+	npm run dev
+```
+
+Se deben cargar la variables de entorno en un archivo `.env.local` segun se indica en
+`env.example`
+
 Icon: https://google.github.io/material-design-icons/
 
 [API: https://www.metaweather.com/api/]
